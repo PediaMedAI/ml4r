@@ -1,0 +1,33 @@
+{%- comment -%}
+  Person card. Params: p (document), dir ("speakers" | "organizers"), bio ("open" | "collapsed").
+{%- endcomment -%}
+{%- assign p = include.p -%}
+<article class="person">
+  <div class="person-photo">
+    {%- if p.img and p.img != "" %}
+    <img src="{{ '/assets/img/' | append: include.dir | append: '/' | append: p.img | relative_url }}" alt="Photo of {{ p.name }}" loading="lazy" width="160" height="160">
+    {%- else %}
+    {%- assign parts = p.name | split: " " -%}
+    <span class="person-initials" aria-hidden="true">{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</span>
+    {%- endif %}
+  </div>
+  <div class="person-body">
+    <h3 class="person-name">
+      {%- if p.webpage and p.webpage != "" %}<a href="{{ p.webpage }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif -%}
+    </h3>
+    {%- if p.affil and p.affil != "" %}
+    <p class="person-affil">{{ p.affil }}{% if p.affil2 %}<br>{{ p.affil2 }}{% endif %}</p>
+    {%- endif %}
+    {%- assign bio = p.content | strip -%}
+    {%- if bio != "" %}
+      {%- if include.bio == "collapsed" %}
+      <details class="person-bio">
+        <summary>Bio</summary>
+        {{ p.content }}
+      </details>
+      {%- else %}
+      <div class="person-bio">{{ p.content }}</div>
+      {%- endif %}
+    {%- endif %}
+  </div>
+</article>

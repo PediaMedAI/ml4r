@@ -1,0 +1,241 @@
+---
+layout: default
+---
+{%- assign papers = site.papers | sort: "sequence_id" -%}
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow">Workshop at <a href="{{ site.venue_url }}">{{ site.venue }}</a></p>
+    <h1 class="hero-title"><span class="hl">M</span>achine <span class="hl">L</span>earning <span class="hl">for</span> <span class="hl">R</span>are Disease</h1>
+    <p class="hero-meta">{{ site.date_text }} &nbsp;·&nbsp; {{ site.location_text }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#cfp">Call for Papers</a>
+      {% if site.openreview_url != "" %}
+      <a class="btn btn-ghost" href="{{ site.openreview_url }}">Submit on OpenReview</a>
+      {% else %}
+      <span class="btn btn-ghost is-disabled" aria-disabled="true">OpenReview: coming soon</span>
+      {% endif %}
+    </div>
+    {% if site.status_note != "" %}
+    <p class="status-note">{{ site.status_note }}</p>
+    {% endif %}
+  </div>
+  <div class="container stats" aria-label="Rare disease in numbers">
+    <div class="stat"><span class="stat-num">7,000+</span><span class="stat-label">distinct rare diseases</span></div>
+    <div class="stat"><span class="stat-num">263–446M</span><span class="stat-label">people affected worldwide</span></div>
+    <div class="stat"><span class="stat-num">~70%</span><span class="stat-label">have exclusively pediatric onset</span></div>
+    <div class="stat"><span class="stat-num">~5%</span><span class="stat-label">have an FDA-approved treatment</span></div>
+  </div>
+  <p class="container stats-source">Sources: <a href="https://doi.org/10.1038/s41431-019-0508-0">Nguengang Wakap et al., 2020</a>; <a href="https://doi.org/10.1186/s13023-023-02790-7">Fermaglich &amp; Miller, 2023</a>.</p>
+</section>
+
+<!-- ============ About ============ -->
+<section id="about" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">About</h2>
+    <p class="lead">Rare diseases are individually uncommon but collectively a major global health burden, and most of them begin in childhood. Patients still face diagnostic odysseys that average several years, and only a small fraction of conditions have an approved therapy.</p>
+    <p>From a machine-learning perspective, rare disease is an <strong>extreme long-tail problem</strong>: thousands of diagnostic classes, very few samples per class, heterogeneous presentations, and high stakes for every prediction. Evidence is spread across genomes, faces, movement and behavior, speech, imaging, microscopy, clinical notes, and time, which makes diagnosis inherently <strong>multimodal</strong>.</p>
+    <p>The <strong>Workshop on Machine Learning for Rare Disease (ML4R)</strong> treats rare disease as a first-class ML problem. It brings together ML researchers, clinicians, geneticists, and patient communities to turn recent advances, from variant effect predictors and facial phenotyping to knowledge-graph diagnosis and agentic LLM systems, into rigorous, trustworthy, and equitable tools, with particular attention to children and their families. Unlike genomics-focused workshops, ML4R gives <strong>genotype and phenotype equal weight</strong> and focuses on the clinical path from first symptoms to diagnosis, treatment, and long-term care.</p>
+  </div>
+  <div class="container">
+    <h3 class="sub-title">Six challenges we want to tackle</h3>
+    <ol class="topic-grid">
+      {%- for t in site.data.topics %}
+      <li class="topic-card">
+        <span class="topic-num">{{ forloop.index }}</span>
+        <h4>{{ t.title }}</h4>
+        <p>{{ t.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Call for Papers ============ -->
+<section id="cfp" class="section section-alt">
+  <div class="container narrow">
+    <h2 class="section-title">Call for Papers</h2>
+    <p>We invite submissions on machine learning for the diagnosis, understanding, treatment, and care of rare diseases. New models, datasets, benchmarks, and applications are all welcome. Topics include, but are not limited to:</p>
+    <ul class="topic-list">
+      <li>Phenotype-driven, genomic, and multimodal diagnosis, including pediatric rare diseases</li>
+      <li>Behavioral and motor phenotyping from video, pose, speech, eye-tracking, and wearable sensors</li>
+      <li>Medical imaging, microscopy, and facial analysis for rare diseases</li>
+      <li>Few-shot, zero-shot, and long-tail learning; synthetic data and patient simulation</li>
+      <li>LLMs, agents, and knowledge graphs for rare disease reasoning and clinical decision support</li>
+      <li>Genomic, protein, and biological foundation models for variant interpretation and gene discovery</li>
+      <li>Drug repurposing, therapy discovery, and clinical trial design for small populations</li>
+      <li>Disease progression modeling, digital biomarkers, and AI for rehabilitation and long-term care</li>
+      <li>Privacy-preserving and federated learning, data sharing, and fairness for rare disease data</li>
+      <li>Datasets, benchmarks, and evaluation protocols for rare disease ML</li>
+      <li>Ethics, patient engagement, and deployment of AI in low-resource settings</li>
+    </ul>
+  </div>
+  <div class="container track-grid">
+    <div class="track">
+      <p class="track-tag">Track 1</p>
+      <h3>Long Papers</h3>
+      <p class="track-len">6–9 pages, ICLR format</p>
+      <p>Research papers that apply machine learning to rare disease challenges or develop methods motivated by them. References and appendices do not count toward the limit. Selected papers are presented as orals.</p>
+    </div>
+    <div class="track">
+      <p class="track-tag">Track 2</p>
+      <h3>Tiny Papers</h3>
+      <p class="track-len">Up to 2 pages</p>
+      <p>A simple idea with an evaluation, a modest self-contained result, a re-analysis, a new dataset or case study, or a clinical or patient perspective on an ML problem. Ideal for clinicians, geneticists, and junior researchers. Presented as posters; the best receive spotlight talks. Must be primarily human-authored.</p>
+    </div>
+  </div>
+  <div class="container narrow">
+    <div class="callout">
+      <p><strong>Non-archival.</strong> We welcome novel, unpublished work. Work already published or accepted at an archival venue (including the ICLR 2027 main conference) is not eligible. Accepted papers are posted publicly on OpenReview and on this website.</p>
+      <p><strong>Review.</strong> Double-blind, at least three reviewers per submission, conflicts managed on OpenReview.</p>
+      <p><strong>Submission.</strong>
+        {% if site.openreview_url != "" %}<a href="{{ site.openreview_url }}">OpenReview submission page</a>{% else %}OpenReview link coming soon{% endif %}
+        {% if site.template_url != "" %} · <a href="{{ site.template_url }}">LaTeX template</a>{% endif %}
+        {% if site.reviewer_form_url != "" %} · <a href="{{ site.reviewer_form_url }}">Volunteer to review</a>{% endif %}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Dates ============ -->
+<section id="dates" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">Important Dates</h2>
+    <p class="muted">All deadlines are 11:59 pm Anywhere on Earth (AoE).</p>
+    <ol class="timeline">
+      {%- for d in site.data.dates %}
+      <li class="{% if d.highlight %}is-highlight{% endif %}{% if d.done %} is-done{% endif %}">
+        <span class="tl-date">{{ d.date }}</span>
+        <span class="tl-event">{{ d.event }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Speakers ============ -->
+<section id="speakers" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Invited Speakers</h2>
+    <p class="section-intro">Our speakers span machine learning, clinical medicine, global health, and industry, across the United States, Japan, and Ghana.</p>
+    <div class="people-grid people-grid-speakers">
+      {%- assign speakers = site.speakers | sort: "order" -%}
+      {%- for p in speakers %}
+      {% include person.html p=p dir="speakers" bio="collapsed" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ Schedule ============ -->
+<section id="schedule" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">Tentative Schedule</h2>
+    <p class="muted">Times are local and will be adjusted to the slot ICLR assigns. Every keynote is 30 minutes plus 10 minutes of Q&amp;A.</p>
+    <ol class="schedule">
+      {%- assign schedule = site.schedule | sort: "sequence_id" -%}
+      {%- for s in schedule %}
+      <li class="sched-item sched-{{ s.type }}">
+        <span class="sched-time">{{ s.start }}–{{ s.end }}</span>
+        <div class="sched-body">
+          {%- if s.type == "keynote" %}<span class="sched-kind">Keynote</span>{% endif %}
+          <span class="sched-title">{{ s.title }}</span>
+          {%- if s.speaker and s.speaker != "Authors" %}
+          <span class="sched-speaker">{{ s.speaker }}{% if s.affil %} · {{ s.affil }}{% endif %}</span>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{%- if papers.size > 0 %}
+<!-- ============ Accepted papers ============ -->
+<section id="papers" class="section section-alt">
+  <div class="container narrow">
+    <h2 class="section-title">Accepted Papers</h2>
+    <ul class="paper-list">
+      {%- for paper in papers %}
+      <li class="paper">
+        <p class="paper-title">{{ paper.title }}{% if paper.award and paper.award != "" %} <span class="badge">{{ paper.award }}</span>{% endif %}</p>
+        <p class="paper-authors">{{ paper.authors }}</p>
+        <p class="paper-links">
+          {%- if paper.track %}<span class="muted">{{ paper.track }}</span>{% endif %}
+          {%- if paper.openreview and paper.openreview != "" %} · <a href="{{ paper.openreview }}">OpenReview</a>{% endif %}
+          {%- if paper.poster and paper.poster != "" %} · <a href="{% if paper.poster contains '://' %}{{ paper.poster }}{% else %}{{ '/assets/posters/' | append: paper.poster | relative_url }}{% endif %}">Poster</a>{% endif %}
+        </p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ============ Organizers ============ -->
+<section id="organizers" class="section {% if papers.size > 0 %}{% else %}section-alt{% endif %}">
+  <div class="container">
+    <h2 class="section-title">Organizers</h2>
+    <p class="section-intro">An interdisciplinary team of ML and computer vision researchers, pediatricians, a pediatric neurologist, a pediatric physiotherapist, and a laboratory hematologist from the United States, Europe, China, and Japan.</p>
+    <div class="people-grid people-grid-organizers">
+      {%- assign organizers = site.organizers | sort: "order" -%}
+      {%- for p in organizers %}
+      {% include person.html p=p dir="organizers" bio="collapsed" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ Travel & mentoring ============ -->
+<section id="support" class="section">
+  <div class="container support-grid">
+    <div class="support-card">
+      <h3>Travel funding</h3>
+      <p>We will cover registration and travel for participants who otherwise could not attend, prioritizing researchers from under-represented groups and low-resource regions, first-time authors, and patient advocates.</p>
+      <p>{% if site.travel_form_url != "" %}<a class="btn btn-small" href="{{ site.travel_form_url }}">Apply for travel funding</a>{% else %}<span class="muted">Application form coming soon.</span>{% endif %}</p>
+    </div>
+    <div class="support-card">
+      <h3>Mentoring tables</h3>
+      <p>During lunch, first-time authors, clinicians, and students are paired with keynote speakers and senior researchers for small-group conversations.</p>
+    </div>
+    <div class="support-card">
+      <h3>Remote access</h3>
+      <p>Papers and posters are public before the workshop. With speakers' permission, talks are recorded and posted here, and questions can be sent in advance or through a live online Q&amp;A channel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sponsors ============ -->
+<section id="sponsors" class="section section-alt">
+  <div class="container narrow">
+    <h2 class="section-title">Sponsors</h2>
+    {%- if site.data.sponsors.size > 0 %}
+    <div class="sponsor-grid">
+      {%- for s in site.data.sponsors %}
+      <a class="sponsor" href="{{ s.url }}"><img src="{{ '/assets/img/sponsors/' | append: s.logo | relative_url }}" alt="{{ s.name }}"></a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    <p>Sponsorship funds travel awards for participants who could not otherwise attend and best paper awards. If your organization works on AI for rare disease or health and would like to support ML4R, please <a href="mailto:{{ site.email }}?subject=ML4R%20sponsorship">get in touch</a>.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section">
+  <div class="container narrow">
+    <h2 class="section-title">FAQ</h2>
+    {%- for g in site.data.faq %}
+    <h3 class="sub-title">{{ g.group }}</h3>
+    <div class="faq-group">
+      {%- for item in g.items %}
+      <details class="faq">
+        <summary>{{ item.q }}</summary>
+        <div class="faq-a">{{ item.a | markdownify }}</div>
+      </details>
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+    <p class="muted faq-more">Other questions? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>. For registration and travel, see the <a href="https://iclr.cc/">ICLR website</a>.</p>
+  </div>
+</section>

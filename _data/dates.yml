@@ -1,0 +1,7 @@
+# Important dates (all deadlines 11:59pm AoE). Set `done: true` to grey an item out.
+- { date: "15 Dec 2026", event: "Call for papers released" }
+- { date: "1 Feb 2027", event: "Paper submission deadline" }
+- { date: "18 Feb 2027", event: "Reviews due" }
+- { date: "24 Feb 2027", event: "Author notification; accepted papers public on OpenReview" }
+- { date: "1 Apr 2027", event: "Camera-ready papers, posters, and talk titles online" }
+- { date: "Apr 2027", event: "Workshop at ICLR 2027", highlight: true }

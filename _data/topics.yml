@@ -1,0 +1,13 @@
+# The six challenges from the proposal, shown as cards in "About".
+- title: "Diagnosing rare diseases, especially in children"
+  text: "Phenotype-driven diagnosis with ontologies such as HPO, variant and gene prioritization, and LLM-based and agentic diagnostic assistants evaluated on real patient cohorts."
+- title: "Multimodal phenotyping beyond the genome"
+  text: "Facial dysmorphology, gait and motor development, behavior, speech, eye-tracking, wearables, medical imaging and microscopy, and phenotypes from clinical notes."
+- title: "Learning in the extreme long tail"
+  text: "Few-shot and zero-shot learning, patients-like-me retrieval, knowledge-graph-augmented learning, synthetic patients, and realistic evaluation for ultra-rare conditions."
+- title: "Genomic and biological foundation models"
+  text: "Variant effect prediction and DNA and protein foundation models, validated, calibrated, linked to phenotypes, and integrated into diagnostic workflows."
+- title: "AI for therapy discovery and care"
+  text: "Drug repurposing, target identification, trial design for small populations, progression modeling, digital outcome measures, and support for rehabilitation and families."
+- title: "Risk and opportunity in rare disease data"
+  text: "Privacy-preserving and federated learning, de-identification of images and video, data standards, fairness across under-represented populations, and patient participation."

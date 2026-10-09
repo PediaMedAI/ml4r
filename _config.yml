@@ -1,0 +1,67 @@
+# ML4R @ ICLR 2027 — site settings
+# Built on the sniffle workshop template (https://github.com/krrish94/sniffle-workshop, MIT).
+# Restart `jekyll serve` after editing this file.
+
+title: "ML4R @ ICLR 2027"
+long_title: "Workshop on Machine Learning for Rare Disease"
+short_name: "ML4R"
+venue: "ICLR 2027"
+venue_url: "https://iclr.cc/"
+date_text: "April 2027 · exact date TBA"
+location_text: "In person at ICLR 2027"
+description: >-
+  ML4R brings together ML researchers, clinicians, geneticists, and patient communities
+  to treat rare disease as a first-class machine learning problem: extreme data scarcity,
+  long-tailed label spaces, multimodal phenotyping, and trustworthy clinical deployment.
+email: "xucao@pediamed.ai"
+
+# Shown as a banner under the hero while the proposal is under review.
+# Set to "" once the workshop is accepted.
+status_note: "This workshop is currently a proposal under review for ICLR 2027. Dates and details may change."
+
+# Links that are not live yet can stay empty; buttons then show "coming soon".
+openreview_url: ""
+template_url: ""
+travel_form_url: ""
+reviewer_form_url: ""
+mailing_list_url: ""
+
+url: "https://pediamed.ai"
+baseurl: "/ml4r"
+
+# Previous editions of the series, shown in the navigation dropdown.
+editions:
+  - name: "AI4CHL @ ICLR 2025"
+    url: "https://pediamed.ai/ai4chl/"
+  - name: "CV4CHL @ CVPR 2026"
+    url: "https://pediamed.ai/cv4chl/"
+
+# Top navigation (anchors on the single-page home).
+nav:
+  - { title: "About", anchor: "about" }
+  - { title: "Call for Papers", anchor: "cfp" }
+  - { title: "Dates", anchor: "dates" }
+  - { title: "Speakers", anchor: "speakers" }
+  - { title: "Schedule", anchor: "schedule" }
+  - { title: "Organizers", anchor: "organizers" }
+  - { title: "Sponsors", anchor: "sponsors" }
+  - { title: "FAQ", anchor: "faq" }
+
+# Speakers, organizers, schedule and papers are one markdown file per entry.
+collections:
+  speakers:
+    output: false
+  organizers:
+    output: false
+  schedule:
+    output: false
+  papers:
+    output: false
+
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
