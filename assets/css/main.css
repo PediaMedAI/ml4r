@@ -174,7 +174,7 @@ details.person-bio[open] > summary { margin-bottom: 8px; }
 .sched-break, .sched-poster { background: var(--bg-alt); }
 .sched-break .sched-title, .sched-poster .sched-title { font-weight: 500; font-style: italic; color: var(--muted); }
 .sched-poster .sched-title { color: var(--brand-dark); font-style: normal; font-weight: 600; }
-.sched-keynote { border-left: 4px solid var(--accent); }
+.sched-keynote, .sched-panel { border-left: 4px solid var(--accent); }
 .sched-contributed { border-left: 4px solid var(--brand); }
 @media (max-width: 600px) { .sched-item { grid-template-columns: 1fr; gap: 2px; } }
 

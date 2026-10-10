@@ -132,14 +132,14 @@ layout: default
 <section id="schedule" class="section">
   <div class="container narrow">
     <h2 class="section-title">Tentative Schedule</h2>
-    <p class="muted">Times are local and will be adjusted to the slot ICLR assigns. Every keynote is 30 minutes plus 10 minutes of Q&amp;A.</p>
+    <p class="muted">Times are local and will be adjusted to the slot ICLR assigns. Every keynote is 30 minutes including Q&amp;A, and the day closes with a 60-minute panel with all keynote speakers.</p>
     <ol class="schedule">
       {%- assign schedule = site.schedule | sort: "sequence_id" -%}
       {%- for s in schedule %}
       <li class="sched-item sched-{{ s.type }}">
         <span class="sched-time">{{ s.start }}–{{ s.end }}</span>
         <div class="sched-body">
-          {%- if s.type == "keynote" %}<span class="sched-kind">Keynote</span>{% endif %}
+          {%- if s.type == "keynote" %}<span class="sched-kind">Keynote</span>{% elsif s.type == "panel" %}<span class="sched-kind">Panel</span>{% endif %}
           <span class="sched-title">{{ s.title }}</span>
           {%- if s.speaker and s.speaker != "Authors" %}
           <span class="sched-speaker">{{ s.speaker }}{% if s.affil %} · {{ s.affil }}{% endif %}</span>
